@@ -8,6 +8,12 @@ import ServiceDetail from './pages/ServiceDetail';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
 import Facilities from './pages/Facilities';
+import GradeTest from './pages/GradeTest';
+import WelfareConsultation from './pages/WelfareConsultation';
+import ElderlyWelfare from './pages/ElderlyWelfare';
+import InsuranceSystem from './pages/InsuranceSystem';
+import WelfareEquipment from './pages/WelfareEquipment';
+import ChooseEquipment from './pages/ChooseEquipment';
 
 function App() {
   return (
@@ -23,6 +29,12 @@ function App() {
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/facilities" element={<Facilities />} />
+            <Route path="/grade-test" element={<GradeTest />} />
+            <Route path="/welfare-consultation" element={<WelfareConsultation />} />
+            <Route path="/elderly-welfare" element={<ElderlyWelfare />} />
+            <Route path="/insurance-system" element={<InsuranceSystem />} />
+            <Route path="/welfare-equipment" element={<WelfareEquipment />} />
+            <Route path="/choose-equipment" element={<ChooseEquipment />} />
           </Routes>
         </main>
         <Footer />
