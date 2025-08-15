@@ -231,9 +231,9 @@ const Facilities = () => {
                       </div>
                       
                       <div className="flex space-x-3">
-                        <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
+                        <Link to={`/facilities/${facility.id}`} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-center">
                           상세보기
-                        </button>
+                        </Link>
                         <button className="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200">
                           문의하기
                         </button>

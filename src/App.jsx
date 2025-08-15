@@ -18,6 +18,7 @@ import TodayHealth from './pages/TodayHealth';
 import TodayProducts from './pages/TodayProducts';
 import TodayRest from './pages/TodayRest';
 import News from './pages/News';
+import FacilityDetail from './pages/FacilityDetail';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
             <Route path="/services/:id" element={<ServiceDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/facilities" element={<Facilities />} />
+                               <Route path="/facilities" element={<Facilities />} />
+                   <Route path="/facilities/:id" element={<FacilityDetail />} />
             <Route path="/grade-test" element={<GradeTest />} />
             <Route path="/welfare-consultation" element={<WelfareConsultation />} />
             <Route path="/elderly-welfare" element={<ElderlyWelfare />} />
