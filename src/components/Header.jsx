@@ -46,7 +46,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* 로고 */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-primary-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">인</span>
             </div>
             <span className="text-xl lg:text-2xl font-bold text-gray-900">
@@ -62,8 +62,8 @@ const Header = () => {
                 to={item.path}
                 className={`text-sm font-medium transition-colors duration-200 ${
                   location.pathname === item.path
-                    ? 'text-primary-600'
-                    : 'text-gray-700 hover:text-primary-600'
+                    ? 'text-blue-600'
+                    : 'text-gray-700 hover:text-blue-600'
                 }`}
               >
                 {item.name}
@@ -75,7 +75,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <Link
               to="/contact"
-              className="btn-primary text-sm"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
             >
               상담 문의
             </Link>
@@ -87,51 +87,61 @@ const Header = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="메뉴 열기/닫기"
           >
-            <div className="relative w-6 h-6">
-              <span className={`absolute top-0 left-0 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${
-                isMobileMenuOpen ? 'rotate-45 translate-y-2.5' : ''
-              }`}></span>
-              <span className={`absolute top-2 left-0 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${
-                isMobileMenuOpen ? 'opacity-0' : ''
-              }`}></span>
-              <span className={`absolute top-4 left-0 w-6 h-0.5 bg-gray-700 transition-all duration-300 ${
-                isMobileMenuOpen ? '-rotate-45 -translate-y-2.5' : ''
-              }`}></span>
-            </div>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              {isMobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
           </button>
         </div>
 
         {/* 모바일 메뉴 */}
-        <div className={`lg:hidden border-t border-gray-200 bg-white transition-all duration-300 ease-in-out overflow-hidden ${
-          isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-        }`}>
-          <nav className="py-4 space-y-2">
-            {navItems.map((item, index) => (
-              <Link
-                key={item.name}
-                to={item.path}
-                className={`block px-4 py-3 text-sm font-medium transition-all duration-200 transform ${
-                  location.pathname === item.path
-                    ? 'text-primary-600 bg-primary-50 border-r-2 border-primary-600'
-                    : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
-                } ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'}`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-            <div className="px-4 pt-4">
-              <Link
-                to="/contact"
-                className="btn-primary w-full text-center block py-3"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                상담 문의
-              </Link>
-            </div>
-          </nav>
-        </div>
+        {isMobileMenuOpen && (
+          <div className="lg:hidden border-t border-gray-200 bg-white">
+            <nav className="py-4 space-y-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+                    location.pathname === item.path
+                      ? 'text-blue-600 bg-blue-50 border-r-2 border-blue-600'
+                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                  }`}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="px-4 pt-4">
+                <Link
+                  to="/contact"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 w-full text-center block"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  상담 문의
+                </Link>
+              </div>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
