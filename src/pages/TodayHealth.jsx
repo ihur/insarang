@@ -20,7 +20,7 @@ const TodayHealth = () => {
       category: 'nutrition',
       excerpt: '나이가 들면서 변화하는 영양 요구량과 건강한 식습관에 대해 알아보세요.',
       content: '어르신의 건강한 삶을 위해서는 균형 잡힌 영양 섭취가 매우 중요합니다. 단백질, 비타민, 미네랄이 풍부한 식사를 통해 근육량 유지와 면역력 강화에 도움을 받을 수 있습니다.',
-      image: 'https://via.placeholder.com/400x250/4F46E5/FFFFFF?text=영양관리',
+      image: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-15',
       readTime: '5분',
       tags: ['영양', '건강식', '단백질', '비타민']
@@ -31,7 +31,7 @@ const TodayHealth = () => {
       category: 'exercise',
       excerpt: '집에서도 안전하게 할 수 있는 간단한 운동들을 소개합니다.',
       content: '규칙적인 운동은 어르신의 근력과 균형감각을 향상시키는 데 도움이 됩니다. 의자에 앉아서 할 수 있는 운동부터 시작하여 점진적으로 강도를 높여가세요.',
-      image: 'https://via.placeholder.com/400x250/10B981/FFFFFF?text=운동',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-14',
       readTime: '7분',
       tags: ['운동', '근력강화', '균형감각', '실내운동']
@@ -42,7 +42,7 @@ const TodayHealth = () => {
       category: 'dementia',
       excerpt: '치매 예방에 도움이 되는 생활 습관과 인지 훈련 방법을 알아보세요.',
       content: '치매 예방을 위해서는 규칙적인 운동, 균형 잡힌 식사, 충분한 수면, 그리고 지속적인 학습과 사회적 활동이 중요합니다.',
-      image: 'https://via.placeholder.com/400x250/F59E0B/FFFFFF?text=치매예방',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-13',
       readTime: '6분',
       tags: ['치매예방', '인지훈련', '뇌건강', '사회활동']
@@ -53,7 +53,7 @@ const TodayHealth = () => {
       category: 'chronic',
       excerpt: '고혈압의 위험성과 일상에서 실천할 수 있는 관리 방법을 알아보세요.',
       content: '고혈압은 심장병, 뇌졸중 등 심각한 질환의 원인이 될 수 있습니다. 소금 섭취 줄이기, 규칙적인 운동, 스트레스 관리가 중요합니다.',
-      image: 'https://via.placeholder.com/400x250/EF4444/FFFFFF?text=고혈압관리',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-12',
       readTime: '8분',
       tags: ['고혈압', '만성질환', '혈압관리', '예방']
@@ -64,7 +64,7 @@ const TodayHealth = () => {
       category: 'mental',
       excerpt: '노년기 우울증의 증상과 예방 방법, 치료에 대해 알아보세요.',
       content: '노년기 우울증은 흔하지만 치료 가능한 질환입니다. 가족의 관심과 사회적 지원, 전문의 상담을 통해 개선할 수 있습니다.',
-      image: 'https://via.placeholder.com/400x250/8B5CF6/FFFFFF?text=정신건강',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-11',
       readTime: '6분',
       tags: ['우울증', '정신건강', '치료', '예방']
@@ -75,7 +75,7 @@ const TodayHealth = () => {
       category: 'chronic',
       excerpt: '당뇨병 환자를 위한 식이요법과 생활 관리 방법을 알아보세요.',
       content: '당뇨병 관리는 식이요법, 운동, 약물치료의 균형이 중요합니다. 정기적인 혈당 체크와 의료진과의 상담이 필수입니다.',
-      image: 'https://via.placeholder.com/400x250/06B6D4/FFFFFF?text=당뇨관리',
+      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-10',
       readTime: '7분',
       tags: ['당뇨병', '혈당관리', '식이요법', '운동']
@@ -86,7 +86,7 @@ const TodayHealth = () => {
       category: 'chronic',
       excerpt: '관절염의 원인과 증상, 일상에서 실천할 수 있는 관리법을 알아보세요.',
       content: '관절염은 적절한 운동과 체중 관리, 올바른 자세로 예방할 수 있습니다. 통증이 심할 때는 전문의와 상담하세요.',
-      image: 'https://via.placeholder.com/400x250/84CC16/FFFFFF?text=관절염관리',
+      image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-09',
       readTime: '5분',
       tags: ['관절염', '통증관리', '운동', '예방']
@@ -97,7 +97,7 @@ const TodayHealth = () => {
       category: 'mental',
       excerpt: '나이가 들면서 변화하는 수면 패턴과 건강한 수면을 위한 팁을 알아보세요.',
       content: '충분한 수면은 면역력 강화와 기억력 향상에 도움이 됩니다. 규칙적인 생활습관과 편안한 수면 환경 조성이 중요합니다.',
-      image: 'https://via.placeholder.com/400x250/F97316/FFFFFF?text=수면건강',
+      image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=250&fit=crop&crop=center',
       date: '2024-01-08',
       readTime: '6분',
       tags: ['수면', '면역력', '기억력', '생활습관']
