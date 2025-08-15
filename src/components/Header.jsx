@@ -4,19 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState(null);
   const location = useLocation();
 
-  // 모바일 메뉴가 열렸을 때 배경 클릭으로 닫기
+  // 디버깅용 콘솔 로그
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
+    console.log('Mobile menu state:', isMobileMenuOpen);
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
@@ -29,11 +22,44 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { name: '홈', path: '/' },
-    { name: '브랜드 스토리', path: '/brand' },
-    { name: '서비스', path: '/services' },
-    { name: '케어 정보', path: '/blog' },
-    { name: '고객센터', path: '/contact' }
+    { 
+      name: '인사랑돌봄 서비스', 
+      path: '/services',
+      submenu: [
+        { name: '인사랑돌봄', path: '/services' },
+        { name: '인정등급 예상 테스트', path: '/grade-test' },
+        { name: '관심 복지용구 상담', path: '/welfare-consultation' },
+        { name: '어르신 복지 서비스', path: '/elderly-welfare' }
+      ]
+    },
+    { 
+      name: '요양시설찾기', 
+      path: '/facilities',
+      submenu: [
+        { name: '요양시설찾기', path: '/facilities' }
+      ]
+    },
+    { 
+      name: '시니어길잡이', 
+      path: '/guide',
+      submenu: [
+        { name: '노인장기요양보험제도', path: '/insurance-system' },
+        { name: '복지용구 알아보기', path: '/welfare-equipment' },
+        { name: '복지용구 선택하기', path: '/choose-equipment' }
+      ]
+    },
+    { 
+      name: '인사랑 정보', 
+      path: '/about',
+      submenu: [
+        { name: '오늘의 복지', path: '/today-welfare' },
+        { name: '오늘의 건강', path: '/today-health' },
+        { name: '오늘의 제품', path: '/today-products' },
+        { name: '오늘의 휴식', path: '/today-rest' },
+        { name: '브랜드 인사랑', path: '/brand' },
+        { name: '인사랑 뉴스', path: '/news' }
+      ]
+    }
   ];
 
   return (
@@ -57,34 +83,60 @@ const Header = () => {
           {/* 데스크톱 메뉴 */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <div
                 key={item.name}
-                to={item.path}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === item.path
-                    ? 'text-blue-600'
-                    : 'text-gray-700 hover:text-blue-600'
-                }`}
+                className="relative"
+                onMouseEnter={() => setHoveredMenu(item.name)}
+                onMouseLeave={() => setHoveredMenu(null)}
               >
-                {item.name}
-              </Link>
+                <Link
+                  to={item.path}
+                  className={`text-xl font-medium transition-colors duration-200 pb-6 ${
+                    location.pathname === item.path || hoveredMenu === item.name
+                      ? 'text-blue-600 border-b-2 border-blue-600'
+                      : 'text-gray-700 hover:text-blue-600'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+                
+                {/* 드롭다운 메뉴 */}
+                {hoveredMenu === item.name && item.submenu && (
+                  <div className="absolute top-full left-0 w-64 bg-white shadow-lg border border-gray-200 rounded-lg py-4 z-50">
+                    {item.submenu.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        to={subItem.path}
+                        className="block px-4 py-2 text-xl text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </nav>
 
           {/* CTA 버튼 */}
           <div className="hidden lg:flex items-center space-x-4">
-            <Link
-              to="/contact"
-              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-sm"
+            <a
+              href="https://insarangmall.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200 text-xl"
             >
-              상담 문의
-            </Link>
+              인사랑몰
+            </a>
           </div>
 
           {/* 모바일 메뉴 버튼 */}
           <button
-            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 border border-gray-300"
+            onClick={() => {
+              console.log('Button clicked! Current state:', isMobileMenuOpen);
+              setIsMobileMenuOpen(!isMobileMenuOpen);
+            }}
             aria-label="메뉴 열기/닫기"
           >
             <svg
@@ -114,30 +166,56 @@ const Header = () => {
 
         {/* 모바일 메뉴 */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden border-t border-gray-200 bg-white">
+          <div className="lg:hidden border-t border-gray-200 bg-white shadow-lg">
             <nav className="py-4 space-y-2">
               {navItems.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.path}
-                  className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
-                    location.pathname === item.path
-                      ? 'text-blue-600 bg-blue-50 border-r-2 border-blue-600'
-                      : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
-                  }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
+                <div key={item.name}>
+                  <Link
+                    to={item.path}
+                    className={`block px-4 py-3 text-sm font-medium transition-colors duration-200 ${
+                      location.pathname === item.path
+                        ? 'text-blue-600 bg-blue-50 border-r-2 border-blue-600'
+                        : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
+                    }`}
+                    onClick={() => {
+                      console.log('Menu item clicked:', item.name);
+                      setIsMobileMenuOpen(false);
+                    }}
+                  >
+                    {item.name}
+                  </Link>
+                  {item.submenu && (
+                    <div className="ml-4 space-y-1">
+                      {item.submenu.map((subItem) => (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
+                          className="block px-4 py-2 text-xs text-gray-600 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                          onClick={() => {
+                            console.log('Submenu item clicked:', subItem.name);
+                            setIsMobileMenuOpen(false);
+                          }}
+                        >
+                          • {subItem.name}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="px-4 pt-4">
-                <Link
-                  to="/contact"
+                <a
+                  href="https://insarangmall.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition-colors duration-200 w-full text-center block"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={() => {
+                    console.log('Insarangmall button clicked');
+                    setIsMobileMenuOpen(false);
+                  }}
                 >
-                  상담 문의
-                </Link>
+                  인사랑몰
+                </a>
               </div>
             </nav>
           </div>

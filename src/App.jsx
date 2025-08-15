@@ -7,6 +7,7 @@ import Services from './pages/Services';
 import ServiceDetail from './pages/ServiceDetail';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Facilities from './pages/Facilities';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/services/:id" element={<ServiceDetail />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/facilities" element={<Facilities />} />
           </Routes>
         </main>
         <Footer />
