@@ -14,6 +14,10 @@ import ElderlyWelfare from './pages/ElderlyWelfare';
 import InsuranceSystem from './pages/InsuranceSystem';
 import WelfareEquipment from './pages/WelfareEquipment';
 import ChooseEquipment from './pages/ChooseEquipment';
+import TodayHealth from './pages/TodayHealth';
+import TodayProducts from './pages/TodayProducts';
+import TodayRest from './pages/TodayRest';
+import News from './pages/News';
 
 function App() {
   return (
@@ -35,6 +39,11 @@ function App() {
             <Route path="/insurance-system" element={<InsuranceSystem />} />
             <Route path="/welfare-equipment" element={<WelfareEquipment />} />
             <Route path="/choose-equipment" element={<ChooseEquipment />} />
+            <Route path="/today-welfare" element={<Blog />} />
+            <Route path="/today-health" element={<TodayHealth />} />
+            <Route path="/today-products" element={<TodayProducts />} />
+            <Route path="/today-rest" element={<TodayRest />} />
+            <Route path="/news" element={<News />} />
           </Routes>
         </main>
         <Footer />

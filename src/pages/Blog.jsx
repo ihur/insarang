@@ -32,11 +32,11 @@ const Blog = () => {
       <section className="bg-gradient-to-r from-primary-600 to-primary-700 text-white py-20">
         <div className="container-custom text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            케어 정보
+            오늘의 복지
           </h1>
           <p className="text-xl text-primary-100 max-w-3xl mx-auto">
-            시니어 케어에 대한 전문적인 정보와 유용한 팁을 제공합니다. 
-            어르신의 건강한 삶을 위한 다양한 정보를 확인해보세요.
+            어르신을 위한 최신 복지 정보와 유용한 팁을 제공합니다. 
+            어르신의 건강한 삶을 위한 다양한 복지 정보를 확인해보세요.
           </p>
         </div>
       </section>
@@ -165,11 +165,11 @@ const Blog = () => {
       <section className="py-20 bg-gray-50">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-            더 많은 케어 정보가 필요하신가요?
+            더 많은 복지 정보가 필요하신가요?
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             전문 상담사에게 직접 문의하여 어르신에게 맞는 
-            케어 방법에 대해 상담받아보세요
+            복지 혜택에 대해 상담받아보세요
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/contact" className="btn-primary text-lg px-8 py-4">
