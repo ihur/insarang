@@ -475,11 +475,12 @@ export const blogData = [
 // 회사 정보 데이터
 export const companyData = {
   name: "인사랑돌봄",
-  address: "서울특별시 강남구 테헤란로 123",
-  phone: "02-1234-5678",
+  address: "서울특별시 서초구 서초대로 398, BNK디지털타워 412호",
+  phone: "1577-7596",
+  phoneSecondary: "02-511-0602",
   email: "info@insarang.co.kr",
-  businessHours: "평일 09:00-18:00, 토요일 09:00-13:00",
-  emergencyPhone: "02-1234-9999",
+  businessHours: "평일 09:00-18:00",
+  kakaoTalk: "인사랑컨설팅",
   socialMedia: {
     facebook: "https://facebook.com/insarang",
     instagram: "https://instagram.com/insarang",

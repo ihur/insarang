@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { companyData } from '../data/mockData';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -184,9 +185,9 @@ const Contact = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">전화 상담</h3>
-                      <p className="text-gray-600 mb-2">02-1234-5678</p>
-                      <p className="text-sm text-gray-500">평일 09:00-18:00, 토요일 09:00-13:00</p>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">상담전화</h3>
+                      <p className="text-gray-600 mb-2">{companyData.phone}</p>
+                      <p className="text-sm text-gray-500">{companyData.businessHours}</p>
                     </div>
                   </div>
 
@@ -198,7 +199,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">이메일</h3>
-                      <p className="text-gray-600">info@seniorcare.co.kr</p>
+                      <p className="text-gray-600">{companyData.email}</p>
                     </div>
                   </div>
 
@@ -211,7 +212,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold text-gray-900 mb-1">주소</h3>
-                      <p className="text-gray-600">서울특별시 강남구 테헤란로 123</p>
+                      <p className="text-gray-600">{companyData.address}</p>
                     </div>
                   </div>
 
@@ -222,9 +223,22 @@ const Contact = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">응급 연락처</h3>
-                      <p className="text-red-600 font-semibold">02-1234-9999</p>
-                      <p className="text-sm text-gray-500">24시간 응급 상황 대응</p>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">대표전화</h3>
+                      <p className="text-red-600 font-semibold">{companyData.phoneSecondary}</p>
+                      <p className="text-sm text-gray-500">추가 상담 문의</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <svg className="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">카카오톡</h3>
+                      <p className="text-gray-600">{companyData.kakaoTalk}</p>
+                      <p className="text-sm text-gray-500">실시간 상담 가능</p>
                     </div>
                   </div>
                 </div>
